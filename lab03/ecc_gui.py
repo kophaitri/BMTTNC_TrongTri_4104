@@ -5,7 +5,7 @@ import os
 os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "../platforms"
 
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from ui.ecc import Ui_MainWindow
+from ui.ecc import Ui_MainWindow # type: ignore
 import requests
 
 class MyApp(QMainWindow):

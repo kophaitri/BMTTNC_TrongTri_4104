@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-from ui.rsa import Ui_MainWindow
+from ui.rsa import Ui_MainWindow # type: ignore
 import requests
 
 class MyApp(QMainWindow):
