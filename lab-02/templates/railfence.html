@@ -1,0 +1,60 @@
+<div class="container animate__animated animate__fadeIn">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Hệ Thống Rail Fence</h1>
+        <p class="text-muted">Mã hóa zigzag theo phong cách quân đội cổ điển</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="glass-card">
+                <div class="d-flex align-items-center gap-2 mb-4">
+                    <i data-lucide="lock" class="text-primary"></i>
+                    <h4 class="mb-0 fw-bold">Mã Hóa</h4>
+                </div>
+                
+                <form action="/encrypt" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Bản rõ (Plaintext)</label>
+                        <input type="text" class="form-control" name="inputPlainText" value="{{ old_text_encrypt or '' }}" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Số đường ray (Number of Rails)</label>
+                        <input type="number" class="form-control" name="inputRails" value="{{ old_rails_encrypt or 3 }}" min="2" required>
+                    </div>
+                    <button type="submit" class="btn btn-main btn-encrypt w-100 mb-4">
+                        <i data-lucide="refresh-cw" class="icon-spin"></i> THỰC THI MÃ HÓA
+                    </button>
+                </form>
+
+                <label class="form-label">Kết quả (Ciphertext)</label>
+                <textarea class="form-control output-area" rows="2" readonly>{{ result_encrypt or '' }}</textarea>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="glass-card">
+                <div class="d-flex align-items-center gap-2 mb-4">
+                    <i data-lucide="unlock" class="text-success"></i>
+                    <h4 class="mb-0 fw-bold">Giải Mã</h4>
+                </div>
+
+                <form action="/decrypt" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Bản mã (Ciphertext)</label>
+                        <input type="text" class="form-control" name="inputCipherText" value="{{ old_text_decrypt or '' }}" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Số đường ray (Number of Rails)</label>
+                        <input type="number" class="form-control" name="inputRails" value="{{ old_rails_decrypt or 3 }}" min="2" required>
+                    </div>
+                    <button type="submit" class="btn btn-main btn-decrypt w-100 mb-4">
+                        <i data-lucide="cpu"></i> THỰC THI GIẢI MÃ
+                    </button>
+                </form>
+
+                <label class="form-label">Kết quả (Plaintext)</label>
+                <textarea class="form-control output-area" rows="2" readonly style="color: var(--success-color);">{{ result_decrypt or '' }}</textarea>
+            </div>
+        </div>
+    </div>
+</div>
